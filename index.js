@@ -80,6 +80,7 @@ const ORDERED_DEFAULTS = {
     ].concat(Object.keys(globals.browser || {})),
     module: [
       'global',
+      '@videojs/global-compat',
       '@babel/runtime'
     ].concat(Object.keys(globals.module || {})),
     test: [
@@ -138,7 +139,10 @@ const ORDERED_DEFAULTS = {
     externalGlobals: externalGlobals({
       'global': 'window',
       'global/window': 'window',
-      'global/document': 'document'
+      'global/document': 'document',
+      '@videojs/global-compat': 'window',
+      '@videojs/global-compat/window': 'window',
+      '@videojs/global-compat/document': 'document'
     }),
     multiEntry: multiEntry({exports: false}),
     resolve: resolve({
